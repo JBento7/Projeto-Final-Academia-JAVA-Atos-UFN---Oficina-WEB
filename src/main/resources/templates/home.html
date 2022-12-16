@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Oficina Web</title>
+<!--   <link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen"> -->
+<link rel="stylesheet" type="text/css" media="all"
+	href="/css/estilo.css" th:href="@{/css/estilo.css}" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="hhttps://cdnjs.com/libraries/jquery.mask"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<!-- Inicio da navbar -->
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand"
+				href="https://github.com/JBento7?tab=repositories"><img
+				src="/imagens/oficina.png" alt=""></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/home/index">Home</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/orcamento/addOrc">Novo
+									Orçamento</a></li>
+							<li><a class="dropdown-item" href="/carro/addCarro">Novo
+									Veiculo</a></li>
+							<li><a class="dropdown-item" href="/cliente/addClientepf">Novo
+									Cliente PF</a></li>
+							<li><a class="dropdown-item" href="/clientepj/addPj">Novo
+									Cliente PJ</a></li>
+							<li><a class="dropdown-item" href="/oficina/addOficina">Nova
+									Oficina</a></li>
+							<li><a class="dropdown-item" href="/mecanico/addMecanico">Novo
+									Mecanico</a></li>
+							<li><a class="dropdown-item" href="/servico/addServico">Novo
+									Serviço</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">
+							Visualizar/Atualizar </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/carro/list">Visualizar/Atualizar
+									Veiculos</a></li>
+							<li><a class="dropdown-item" href="/cliente/list">Visualizar/Atualizar
+									Clientes PF</a></li>
+							<li><a class="dropdown-item" href="/clientepj/list">Visualizar/Atualizar
+									Clientes PJ</a></li>
+							<li><a class="dropdown-item" href="/mecanico/list">Visualizar/Atualizar
+									Mecanicos</a></li>
+							<li><a class="dropdown-item" href="/servico/list">Visualizar/Atualizar
+									Serviço</a></li>
+
+						</ul></li>
+						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim da navbar-->
+
+	<!--Inicio do da pagina-->
+	<div class="h-100 w-100 p-3 mx-auto mt-2 rounded"
+		style="background-color: #97A6A0;">
+		<div class="card">
+			<h5 class="card-header">Boas Vindas a Oficina Web!</h5>
+			<div class="card-body">
+				<p class="card-title">Através do menu acima, navegue até a tela
+					desejada.</p>
+				<p class="card-text">Logo abaixo estão listados as uiltimas
+					Ordens de Serviços cadastradas</p>
+			</div>
+		</div>
+		<br> <br>
+
+		<div class="col-12 col-xl-8 mb-4 mb-lg-0">
+			<div class="card">
+				<h5 class="card-header">Ultimas O.S Cadastradas</h5>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th style="width: 10%" class="list">ID Ordem Serviço</th>
+									<th style="width: 10%" class="list">ID Orçamento</th>
+									<th style="width: 10%" class="list">Data Entrada</th>
+									<th style="width: 10%" class="list">Data Entrega</th>
+									<th style="width: 10%" class="list">Valor</th>
+									<th style="width: 10%" class="list">Modelo</th>
+									<th style="width: 10%" class="list">Placa</th>
+									<th style="width: 10%" class="list">Serviço</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="os : ${os}" th:id="'os' + ${os.id}"
+									th:object="${ordemos}">
+									<td th:text="${os.id}" class="text-center"></td>
+									<td th:text="${os.orcamento?.id}" class="text-center"></td>
+									<td
+										th:text="${#dates.format(os.orcamento?.dataentrada, 'dd/MM/yyyy')}"
+										class="text-center"></td>
+									<td th:text="${#dates.format(os.dataentrega, 'dd/MM/yyyy')}"
+										class="text-center"></td>
+									<td th:text="${#numbers.formatCurrency(os.orcamento?.valor)}"
+										class="text-center"></td>
+									<td th:text="${os.orcamento?.carro?.modelo}"
+										class="text-center"></td>
+									<td th:text="${os.orcamento?.carro?.placa}" class="text-center"></td>
+									<td th:text="${os.servico?.servico}" class="text-center"></td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script>
+	$(document).ready(function() {
+		$('.money').mask('000.000.000.000,00')
+	});
+</script>
+
+</html>
+<!--  -->
