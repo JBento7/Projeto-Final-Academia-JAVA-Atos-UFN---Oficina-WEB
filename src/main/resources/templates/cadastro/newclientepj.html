@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,52 +68,58 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Cadastro de Clientes PJ</h5>
-    	
-    </div>
-    
-    <div>
-        <form action="#" th:object="${clientepjModel}" th:action="@{/clientepj/addPj}" method="post">
 
-            <input type="hidden" th:field="*{id}" /> <br>
+	<div class="card">
+		<h5 class="card-header">Cadastro de Clientes PJ</h5>
 
-            <div class="row1">
-                <div class="col">
-                    <Label>CNPJ</Label> <input type="text" th:field="*{cnpj}" maxlength="14" class="form-control1"
-                        placeholder="00.000.000/0000-00" onkeypress="$(this).mask('00.000.000/0000-00')" required>
-                </div>
-            </div>
-            <div>
-                <Label>Razao Social</Label><input type="text" class="form-control1" th:field="*{razaosocial}"
-                    placeholder="Razão Social" required>
-            </div>
-            <div>
-                <Label>Inscrição Estadual</Label><input type="text" class="form-control1" th:field="*{inscestadual}"
-                    placeholder="Inscrição Estadual" required>
-            </div>
-            <div>
-                <Label>Endereço</Label> <input type="text" class="form-control1" placeholder="Rua/Bairro/Cidade"
-                    th:field="*{endereco}" />
-            </div>
-            <div>
-                <Label>E-Mail</Label> <input type="text" class="form-control1" placeholder="Example@oficinaweb.com.br"
-                    th:field="*{email}" />
-            </div>
-             <div>
-                <Label>Tel</Label> <input type="text" class="form-control1" placeholder="0000-0000"
-                    th:field="*{tel}" />
-            </div>
-            <input type="submit" class="btn btn-primary" value="Salvar" /> <input type="reset" class="btn btn-secondary"
-                value="Limpar" />
-        </form>
-    </div>
+	</div>
+
+	<div>
+		<form action="#" th:object="${clientepjModel}"
+			th:action="@{/clientepj/addPj}" method="post">
+
+			<input type="hidden" th:field="*{id}" /> <br>
+
+			<div class="row1">
+				<div class="col">
+					<Label>CNPJ</Label> <input type="text" th:field="*{cnpj}"
+						maxlength="14" class="form-control1"
+						placeholder="00.000.000/0000-00"
+						onkeypress="$(this).mask('00.000.000/0000-00')" required>
+				</div>
+			</div>
+			<div>
+				<Label>Razao Social</Label><input type="text" class="form-control1"
+					th:field="*{razaosocial}" placeholder="Razão Social" required>
+			</div>
+			<div>
+				<Label>Inscrição Estadual</Label><input type="text"
+					class="form-control1" th:field="*{inscestadual}"
+					placeholder="Inscrição Estadual" required>
+			</div>
+			<div>
+				<Label>Endereço</Label> <input type="text" class="form-control1"
+					placeholder="Rua/Bairro/Cidade" th:field="*{endereco}" />
+			</div>
+			<div>
+				<Label>E-Mail</Label> <input type="text" class="form-control1"
+					placeholder="Example@oficinaweb.com.br" th:field="*{email}" />
+			</div>
+			<div>
+				<Label>Tel</Label> <input type="text" class="form-control1"
+					placeholder="0000-0000" th:field="*{tel}" />
+			</div>
+			<input type="submit" class="btn btn-primary" value="Salvar" /> <input
+				type="reset" class="btn btn-secondary" value="Limpar" />
+		</form>
+	</div>
 </body>
 
 </html>

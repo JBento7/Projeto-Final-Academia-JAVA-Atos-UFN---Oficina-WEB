@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,51 +68,46 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Nova Ordem de Serviço</h5>
-    	
-    </div>
+
+	<div class="card">
+		<h5 class="card-header">Nova Ordem de Serviço</h5>
+
+	</div>
 
 	<div>
-		<form action="#" th:object="${osModel}"
-			th:action="@{/os/addOs}" method="post">
+		<form action="#" th:object="${osModel}" th:action="@{/os/addOs}"
+			method="post">
 
 			<input type="hidden" th:field="*{id}" /> <br>
 
 			<div class="row">
 				<div class="col">
-					<Label>Data Estimada</Label> <input type="text" th:field="*{dataentrega}"
-						class="form-control1" placeholder="00/00/0000" 
-						onkeypress="$(this).mask('00/00/00')">
+					<Label>Data Estimada</Label> <input type="text"
+						th:field="*{dataentrega}" class="form-control1"
+						placeholder="00/00/0000" onkeypress="$(this).mask('00/00/00')">
 				</div>
 			</div>
-			
-			<br> 
-			
-			<label>Orçamentos</label> <select th:field="*{orcamento}"
+
+			<br> <label>Orçamentos</label> <select th:field="*{orcamento}"
 				class="form-control1">
-				
+
 				<option th:each="orcamento: ${orcamento}" th:text="${orcamento.id}"
-					th:value="${orcamento.id}"></option></select>
-					
-					<br> 
-			
-			<label>Serviço</label> <select th:field="*{servico}"
+					th:value="${orcamento.id}"></option>
+			</select> <br> <label>Serviço</label> <select th:field="*{servico}"
 				class="form-control1">
 				<option value="">Selecione o Serviço</option>
 				<option th:each="servico: ${servico}" th:text="${servico.servico}"
 					th:value="${servico.id}"></option>
-					
-					
-			</select>
-			
-			<br> <br> <input type="submit" class="btn btn-primary"
+
+
+			</select> <br> <br> <input type="submit" class="btn btn-primary"
 				value="Salvar" /> <input type="reset" class="btn btn-secondary"
 				value="Limpar" />
 		</form>

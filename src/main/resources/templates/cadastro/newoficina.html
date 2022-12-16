@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,17 +68,19 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Cadastro de Oficina</h5>
-    	
-    </div>
-	
+
+	<div class="card">
+		<h5 class="card-header">Cadastro de Oficina</h5>
+
+	</div>
+
 	<div>
 		<form action="#" th:object="${oficinaModel}"
 			th:action="@{/oficina/addOficina}" method="post">

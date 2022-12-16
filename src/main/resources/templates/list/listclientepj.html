@@ -98,8 +98,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -136,17 +134,19 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Listando Clientes PJ</h5>
-    	
-    </div>
-	
+
+	<div class="card">
+		<h5 class="card-header">Listando Clientes PJ</h5>
+
+	</div>
+
 	<div id="content" class="form-control">
 
 		<table id="example" class="table table-striped table-bordered"
@@ -173,7 +173,7 @@
 					<td th:text="${clientepj.tel}" class="text-center"></td>
 					<td>
 						<table id="example" class="table table-striped table-bordered"
-			style="width: 100%">
+							style="width: 100%">
 							<thead>
 								<tr>
 									<th style="width: 20%" class="list">Placa</th>
@@ -188,10 +188,10 @@
 							</tbody>
 						</table>
 					</td>
-					
+
 					<td><a th:href="@{/clientepj/update/{id}(id=${clientepj.id})}"
-							class="btn btn-primary">Editar</a> <a 
-							th:href="@{/clientepj/delete/{id}(id=${clientepj.id})}"
+						class="btn btn-primary">Editar</a> <a
+						th:href="@{/clientepj/delete/{id}(id=${clientepj.id})}"
 						class="btn btn-danger">Deletar</a></td>
 			</tbody>
 		</table>

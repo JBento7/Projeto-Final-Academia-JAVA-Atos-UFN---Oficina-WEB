@@ -60,7 +60,7 @@ public class OrdemServicoController {
 	public String addOs(OrdemServicoModel os, Model model) {
 		ordem.save(os);
 		servicolog.info("Carro {}, foi cadastrado com sucesso!", os.getId());
-		return "redirect:/os/list";
+		return "redirect:/home/index";
 
 	}
 

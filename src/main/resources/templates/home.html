@@ -37,8 +37,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -75,6 +73,8 @@
 									Serviço</a></li>
 
 						</ul></li>
+						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
@@ -124,7 +124,8 @@
 										class="text-center"></td>
 									<td th:text="${#dates.format(os.dataentrega, 'dd/MM/yyyy')}"
 										class="text-center"></td>
-									<td th:text="${#numbers.formatCurrency(os.orcamento?.valor)}" class="text-center"></td>
+									<td th:text="${#numbers.formatCurrency(os.orcamento?.valor)}"
+										class="text-center"></td>
 									<td th:text="${os.orcamento?.carro?.modelo}"
 										class="text-center"></td>
 									<td th:text="${os.orcamento?.carro?.placa}" class="text-center"></td>

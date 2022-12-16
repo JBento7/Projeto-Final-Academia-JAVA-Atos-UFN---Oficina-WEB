@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,48 +68,53 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Cadastro de Clientes PF</h5>
-    	
-    </div>
-    
-    <div>
-        <form action="#" th:object="${clienteModel}" th:action="@{/cliente/addClientepf}" method="post">
 
-            <input type="hidden" th:field="*{id}" /> <br>
+	<div class="card">
+		<h5 class="card-header">Cadastro de Clientes PF</h5>
 
-            <div class="row1">
-                <div class="col">
-                    <Label>CPF</Label> <input type="text" th:field="*{cpf}" maxlength="11" class="form-control1"
-                        placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00')" required>
-                </div>
-            </div>
-            <div>
-                <Label>Nome</Label><input type="text" class="form-control1" th:field="*{nome}"
-                    placeholder="Nome completo" required>
-            </div>
-            <div>
-                <Label>Endereco</Label><input type="text" class="form-control1" th:field="*{endereco}"
-                    placeholder="Rua / Avenida / Logradouro" required>
-            </div>
-            <div>
-                <Label>Cel</Label> <input type="text" class="form-control1" placeholder="(00)0 0000-0000"
-                    th:field="*{cel}" />
-            </div>
-            <div>
-                <Label>Tel</Label> <input type="text" class="form-control1" placeholder="(00) 0000-0000"
-                    th:field="*{tel}" />
-            </div>
-            <input type="submit" class="btn btn-primary" value="Salvar" /> <input type="reset" class="btn btn-secondary"
-                value="Limpar" />
-        </form>
-    </div>
+	</div>
+
+	<div>
+		<form action="#" th:object="${clienteModel}"
+			th:action="@{/cliente/addClientepf}" method="post">
+
+			<input type="hidden" th:field="*{id}" /> <br>
+
+			<div class="row1">
+				<div class="col">
+					<Label>CPF</Label> <input type="text" th:field="*{cpf}"
+						maxlength="11" class="form-control1" placeholder="000.000.000-00"
+						onkeypress="$(this).mask('000.000.000-00')" required>
+				</div>
+			</div>
+			<div>
+				<Label>Nome</Label><input type="text" class="form-control1"
+					th:field="*{nome}" placeholder="Nome completo" required>
+			</div>
+			<div>
+				<Label>Endereco</Label><input type="text" class="form-control1"
+					th:field="*{endereco}" placeholder="Rua / Avenida / Logradouro"
+					required>
+			</div>
+			<div>
+				<Label>Cel</Label> <input type="text" class="form-control1"
+					placeholder="(00)0 0000-0000" th:field="*{cel}" />
+			</div>
+			<div>
+				<Label>Tel</Label> <input type="text" class="form-control1"
+					placeholder="(00) 0000-0000" th:field="*{tel}" />
+			</div>
+			<input type="submit" class="btn btn-primary" value="Salvar" /> <input
+				type="reset" class="btn btn-secondary" value="Limpar" />
+		</form>
+	</div>
 </body>
 
 </html>

@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,16 +68,18 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Novo Orçamento</h5>
-    	
-    </div>
+
+	<div class="card">
+		<h5 class="card-header">Novo Orçamento</h5>
+
+	</div>
 
 	<div>
 		<form action="#" th:object="${orcamentoModel}"
@@ -89,8 +89,8 @@
 
 			<div class="row">
 				<div class="col">
-					<Label>Data Entrada</Label> <input type="text" th:field="*{dataentrada}"
-						class="form-control1" required>
+					<Label>Data Entrada</Label> <input type="text"
+						th:field="*{dataentrada}" class="form-control1" required>
 				</div>
 			</div>
 			<div>

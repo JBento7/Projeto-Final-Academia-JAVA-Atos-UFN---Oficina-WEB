@@ -70,12 +70,28 @@
 <script
 	src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script
+	src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script
+	src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
 <link
 	href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 
 <link href="css/style.css" rel="stylesheet">
+<link
+	href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+<link href="../../static/css/estilo.css">
+
 
 </head>
 
@@ -142,57 +158,92 @@
 	</nav>
 	<!--Fim da navbar-->
 
-	<!--Inicio do da pagina-->
-
 	<div class="card">
-		<h5 class="card-header">Ordens de Serviços Cadastradas</h5>
+		<h5 class="card-header">Serviços</h5>
 
 	</div>
 
+	<div class="form-control table-responsive">
 
-	<div class="col-12 col-xl-8 mb-4 mb-lg-0">
-		<div class="card">
-			<h5 class="card-header">Ultimas OS Cadastradas</h5>
-			<div class="card-body">
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-							<tr>
-								<th style="width: 10%" class="list">ID Ordem Serviço</th>
-								<th style="width: 10%" class="list">ID Orçamento</th>
-								<th style="width: 10%" class="list">Data Entrada</th>
-								<th style="width: 10%" class="list">Data Entrega</th>
-								<th style="width: 10%" class="list">Valor</th>
-								<th style="width: 10%" class="list">Modelo</th>
-								<th style="width: 10%" class="list">Placa</th>
-								<th style="width: 10%" class="list">Serviço</th>
+		<table id="example" class="table table-striped table-bordered"
+			style="width: 100%">
+			<thead>
+				<tr>
+					<th style="width: 25%" class="list">Serviço</th>
+					<th style="width: 25%" class="list">Mecanico</th>
+					<th style="width: 25%" class="list">Placa</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="servico : ${servico}" th:id="'servico' + ${servico.id}">
+					<td th:text="${servico.servico}" class="text-center"></td>
+					<td th:text="${servico.orcamento}" class="text-center"></td>
+					<td th:text="${servico.servico}" class="text-center"></td>
+					<td>
+						<table id="example" class="table table-striped table-bordered"
+							style="width: 100%">
+							<thead>
+								<tr>
+									<th style="width: 50%" class="list">Nome</th>
+									<th style="width: 50%" class="list">Id Oficina</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="mecanico : ${servico.mecanico}">
+									<td th:text="${mecanico.nome}" class="text-center"></td>
+									<td th:text="${mecanico.idoficina}" class="text-center"></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td>
+						<table id="example" class="table table-striped table-bordered"
+							style="width: 100%">
+							<thead>
+								<tr>
+									<th style="width: 50%" class="list">Placa</th>
+									<th style="width: 50%" class="list">Data</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="orcamento : ${servico.orcamento}">
+									<td th:text="${orcamento.carro?.placa}" class="text-center"></td>
+									<td
+										th:text="${#dates.format(orcamento.dataentrada, 'dd/MM/yyyy')}"
+										class="text-center"></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
 
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="os : ${os}" th:id="'os' + ${os.id}">
-								<td th:text="${os.id}" class="text-center"></td>
-								<td th:text="${os.orcamento?.id}" class="text-center"></td>
-								<td
-									th:text="${#dates.format(os.orcamento?.dataentrada, 'dd/MM/yyyy')}"
-									class="text-center"></td>
-								<td th:text="${#dates.format(os.dataentrega, 'dd/MM/yyyy')}"
-									class="text-center"></td>
-								<td th:text="${os.orcamento?.valor}" class="text-center"></td>
-								<td th:text="${os.orcamento?.carro?.modelo}" class="text-center"></td>
-								<td th:text="${os.orcamento?.carro?.placa}" class="text-center"></td>
-								<td th:text="${os.servico?.servico}" class="text-center"></td>
 
 
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
+
+				</tr>
+
+			</tbody>
+
+
+		</table>
 	</div>
+
+
+
+
 
 </body>
 
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable({
+			dom : 'Bfrtip',
+			buttons : [ {
+				extend : 'pdfHtml5',
+				orientation : 'portrait',
+				pageSize : 'LEGAL'
+			} ]
+		});
+	});
+</script>
+
 </html>
-<!--  -->

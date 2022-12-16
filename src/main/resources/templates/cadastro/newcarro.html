@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,61 +68,63 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-    <div class="card">
-    	<h5 class="card-header">Cadastro de Veiculos</h5>
-    	
-    </div>
-    
-    <div>
-        <form action="#" th:object="${carroModel}" th:action="@{/carro/addCarro}" method="post">
 
-            <input type="hidden" th:field="*{id}" /> <br>
+	<div class="card">
+		<h5 class="card-header">Cadastro de Veiculos</h5>
 
-            <div class="row1">
-                <div class="col">
-                    <Label>Placa</Label> <input type="text" th:field="*{placa}" maxlength="7" class="form-control1"
-                        placeholder="000-AAAA" onkeypress="$(this).mask('000-AAAA')" required>
-                </div>
-            </div>
-            <div>
-                <Label>Marca</Label><input type="text" class="form-control1" th:field="*{marca}"
-                    placeholder="Marca" required>
-            </div>
-            <div>
-                <Label>Modelo</Label><input type="text" class="form-control1" th:field="*{modelo}"
-                    placeholder="Modelo" required>
-            </div>
-            <div>
-                <Label>Cor</Label> <input type="text" class="form-control1" placeholder="Cor"
-                    th:field="*{cor}" />
-            </div>
-            <div>
-                <Label>Categoria</Label> <input type="text" class="form-control1" placeholder="Categoria"
-                    th:field="*{categoria}" />
-            </div>
-            <br> <label>Cliente PF</label> <select th:field="*{clientepf}"
+	</div>
+
+	<div>
+		<form action="#" th:object="${carroModel}"
+			th:action="@{/carro/addCarro}" method="post">
+
+			<input type="hidden" th:field="*{id}" /> <br>
+
+			<div class="row1">
+				<div class="col">
+					<Label>Placa</Label> <input type="text" th:field="*{placa}"
+						maxlength="7" class="form-control1" placeholder="000-AAAA"
+						onkeypress="$(this).mask('000-AAAA')" required>
+				</div>
+			</div>
+			<div>
+				<Label>Marca</Label><input type="text" class="form-control1"
+					th:field="*{marca}" placeholder="Marca" required>
+			</div>
+			<div>
+				<Label>Modelo</Label><input type="text" class="form-control1"
+					th:field="*{modelo}" placeholder="Modelo" required>
+			</div>
+			<div>
+				<Label>Cor</Label> <input type="text" class="form-control1"
+					placeholder="Cor" th:field="*{cor}" />
+			</div>
+			<div>
+				<Label>Categoria</Label> <input type="text" class="form-control1"
+					placeholder="Categoria" th:field="*{categoria}" />
+			</div>
+			<br> <label>Cliente PF</label> <select th:field="*{clientepf}"
 				class="form-control1">
 				<option value="">Selecione o Cliente PF</option>
-				<option th:each="clientepf: ${clientepf}" th:text="${clientepf.nome}"
-					th:value="${clientepf.id}"></option>
-			</select>
-			<br> <label>Selecione Cliente PJ</label> <select th:field="*{clientepj}"
-				class="form-control1">
+				<option th:each="clientepf: ${clientepf}"
+					th:text="${clientepf.nome}" th:value="${clientepf.id}"></option>
+			</select> <br> <label>Selecione Cliente PJ</label> <select
+				th:field="*{clientepj}" class="form-control1">
 				<option value="">Selecione o Cliente PJ</option>
-				<option th:each="clientepj: ${clientepj}" th:text="${clientepj.razaosocial}"
-					th:value="${clientepj.id}"></option>
-			</select>
-			<br>
-            <input type="submit" class="btn btn-primary" value="Salvar" /> <input type="reset" class="btn btn-secondary"
-                value="Limpar" />
-        </form>
-    </div>
+				<option th:each="clientepj: ${clientepj}"
+					th:text="${clientepj.razaosocial}" th:value="${clientepj.id}"></option>
+			</select> <br> <input type="submit" class="btn btn-primary"
+				value="Salvar" /> <input type="reset" class="btn btn-secondary"
+				value="Limpar" />
+		</form>
+	</div>
 </body>
 
 </html>

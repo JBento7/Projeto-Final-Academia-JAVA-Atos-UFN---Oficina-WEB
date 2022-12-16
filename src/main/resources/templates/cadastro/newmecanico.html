@@ -32,8 +32,6 @@
 						aria-current="page" href="/home/index">Home</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/os/addOs">Nova OS</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
@@ -70,16 +68,18 @@
 									Serviço</a></li>
 
 						</ul></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/servico/list">Gerar Relatorio</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-    
-     <div class="card">
-    	<h5 class="card-header">Cadastro de Mecanicos</h5>
-    	
-    </div>
+
+	<div class="card">
+		<h5 class="card-header">Cadastro de Mecanicos</h5>
+
+	</div>
 
 	<div>
 		<form action="#" th:object="${mecanicoModel}"
@@ -109,8 +109,8 @@
 			<br> <label>Oficina</label> <select th:field="*{oficina}"
 				class="form-control1">
 				<option value="">Selecione a Oficina</option>
-				<option th:each="oficina: ${oficina}"
-					th:text="${oficina.nome}" th:value="${oficina.id}"></option>
+				<option th:each="oficina: ${oficina}" th:text="${oficina.nome}"
+					th:value="${oficina.id}"></option>
 			</select> <br> <br> <input type="submit" class="btn btn-primary"
 				value="Salvar" /> <input type="reset" class="btn btn-secondary"
 				value="Limpar" />
