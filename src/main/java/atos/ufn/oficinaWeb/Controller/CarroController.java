@@ -23,9 +23,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import atos.ufn.oficinaWeb.Model.CarroModel;
 import atos.ufn.oficinaWeb.Model.ClienteJuridicoModel;
 import atos.ufn.oficinaWeb.Model.ClienteModel;
+import atos.ufn.oficinaWeb.Model.OrcamentoModel;
 import atos.ufn.oficinaWeb.Service.CarroService;
 import atos.ufn.oficinaWeb.Service.ClienteJuridicoService;
 import atos.ufn.oficinaWeb.Service.ClienteService;
+import atos.ufn.oficinaWeb.Service.OrcamentoService;
 
 @Controller
 @RequestMapping("/carro")
@@ -39,6 +41,8 @@ public class CarroController {
 	private ClienteService clienteService;
 	@Autowired
 	private ClienteJuridicoService pjservice;
+	@Autowired
+	private OrcamentoService orcamento;
 
 	@PostMapping("/addCarro")
 	public String addCarro(CarroModel carro, Model model) {
@@ -60,7 +64,10 @@ public class CarroController {
 	@GetMapping("/list")
 	public String listCarro(Model model) {
 		List<CarroModel> carro = service.listAll();
+		List<OrcamentoModel> orc = orcamento.listAll();
 		model.addAttribute("carroList", carro);
+		model.addAttribute("orcamento", orc);
+		
 		return "list/listcarro";
 	}
 	

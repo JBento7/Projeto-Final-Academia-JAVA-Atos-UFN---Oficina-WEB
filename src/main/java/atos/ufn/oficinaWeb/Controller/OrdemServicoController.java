@@ -64,10 +64,13 @@ public class OrdemServicoController {
 
 	}
 
-	@GetMapping("/addOs")
-	public String getNewOS(Model model) {
+	@GetMapping("/addOs/{id}")
+	public String getNewOS(Model model, @PathVariable(value="id") Integer id) {
+		
+		OrcamentoModel orcamento = serorcamento.listId(id).get() ;
+		
 		model.addAttribute("osModel", new OrdemServicoModel());
-		model.addAttribute("orcamento", serorcamento.listAll());
+		model.addAttribute("orcamento", orcamento);
 		model.addAttribute("carro", carro.listAll());
 		model.addAttribute("servico", servico.listAll());
 		return "cadastro/newordemservico";

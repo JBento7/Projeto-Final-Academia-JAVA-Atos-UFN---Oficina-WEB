@@ -99,7 +99,7 @@
 			
 			<label>Orçamentos</label> <select th:field="*{orcamento}"
 				class="form-control1">
-				<option value="">Selecione o Orçamento</option>
+				
 				<option th:each="orcamento: ${orcamento}" th:text="${orcamento.id}"
 					th:value="${orcamento.id}"></option></select>
 					

@@ -11,6 +11,11 @@
 	href="/css/estilo.css" th:href="@{/css/estilo.css}" />
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="hhttps://cdnjs.com/libraries/jquery.mask"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -75,7 +80,7 @@
 		</div>
 	</nav>
 	<!--Fim da navbar-->
-	
+
 	<!--Inicio do da pagina-->
 	<div class="h-100 w-100 p-3 mx-auto mt-2 rounded"
 		style="background-color: #97A6A0;">
@@ -119,7 +124,7 @@
 										class="text-center"></td>
 									<td th:text="${#dates.format(os.dataentrega, 'dd/MM/yyyy')}"
 										class="text-center"></td>
-									<td th:text="${os.orcamento?.valor}" class="text-center"></td>
+									<td th:text="${#numbers.formatCurrency(os.orcamento?.valor)}" class="text-center"></td>
 									<td th:text="${os.orcamento?.carro?.modelo}"
 										class="text-center"></td>
 									<td th:text="${os.orcamento?.carro?.placa}" class="text-center"></td>
@@ -133,7 +138,14 @@
 			</div>
 		</div>
 	</div>
+
+
 </body>
+<script>
+	$(document).ready(function() {
+		$('.money').mask('000.000.000.000,00')
+	});
+</script>
 
 </html>
 <!--  -->

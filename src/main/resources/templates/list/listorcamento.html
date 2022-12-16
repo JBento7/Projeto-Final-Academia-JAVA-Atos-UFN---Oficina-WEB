@@ -149,7 +149,7 @@
 	
 	<div id="content" class="form-control">
 
-		<table id="example" class="table table-striped table-bordered"
+		<table id="example" class="v"
 			style="width: 100%">
 			<thead>
 				<tr>
@@ -191,7 +191,7 @@
 						</table>
 					</td>
 
-					<td><a th:href="@{/os/addOs}"
+					<td><a th:href="@{/os/addOs/{id}(id=${orcamento.id})}"
 						class="btn btn-primary">Gerar OS</a> <a
 						class="btn btn-danger">Deletar</a></td>
 
