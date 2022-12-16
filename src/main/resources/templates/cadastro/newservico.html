@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Oficina Web</title>
+<!--   <link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen"> -->
+<link rel="stylesheet" type="text/css" media="all"
+	href="/css/estilo.css" th:href="@{/css/estilo.css}" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+	<!-- Inicio da navbar -->
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand"
+				href="https://github.com/JBento7?tab=repositories"><img
+				src="/imagens/oficina.png" alt=""></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/home/index">Home</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/os/addOs">Nova OS</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/orcamento/addOrc">Novo
+									Orçamento</a></li>
+							<li><a class="dropdown-item" href="/carro/addCarro">Novo
+									Veiculo</a></li>
+							<li><a class="dropdown-item" href="/cliente/addClientepf">Novo
+									Cliente PF</a></li>
+							<li><a class="dropdown-item" href="/clientepj/addPj">Novo
+									Cliente PJ</a></li>
+							<li><a class="dropdown-item" href="/oficina/addOficina">Nova
+									Oficina</a></li>
+							<li><a class="dropdown-item" href="/mecanico/addMecanico">Novo
+									Mecanico</a></li>
+							<li><a class="dropdown-item" href="/servico/addServico">Novo
+									Serviço</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">
+							Visualizar/Atualizar </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/carro/list">Visualizar/Atualizar
+									Veiculos</a></li>
+							<li><a class="dropdown-item" href="/cliente/list">Visualizar/Atualizar
+									Clientes PF</a></li>
+							<li><a class="dropdown-item" href="/clientepj/list">Visualizar/Atualizar
+									Clientes PJ</a></li>
+							<li><a class="dropdown-item" href="/mecanico/list">Visualizar/Atualizar
+									Mecanicos</a></li>
+							<li><a class="dropdown-item" href="/servico/list">Visualizar/Atualizar
+									Serviço</a></li>
+
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim da navbar-->
+    
+     <div class="card">
+    	<h5 class="card-header">Cadastro de Serviço</h5>
+    	
+    </div>
+
+	<div>
+		<form action="#" th:object="${servicoModel}"
+			th:action="@{/servico/addServico}" method="post">
+
+			<input type="hidden" th:field="*{id}" /> <br>
+
+			<div class="row">
+				<div class="col">
+					<Label>Tipo Serviço</Label> <input type="text"
+						th:field="*{servico}" class="form-control1"
+						placeholder="Insira o Serviço" required>
+				</div>
+			</div>
+			<br> <label>Mecanico</label> <select th:field="*{mecanico}"
+				class="form-control1">
+				<option value="">Selecione o Mecanico</option>
+				<option th:each="mecanico: ${mecanico}" th:text="${mecanico.nome}"
+					th:value="${mecanico.id}"></option>
+			</select> <br> <br> <input type="submit" class="btn btn-primary"
+				value="Salvar" /> <input type="reset" class="btn btn-secondary"
+				value="Limpar" />
+		</form>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Oficina Web</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="/css/estilo.css" th:href="@{/css/estilo.css}" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+	integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+	crossorigin="anonymous"></script>
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS -->
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+	crossorigin="anonymous"></script>
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+	crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js">
+	
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js">
+	
+</script>
+<script
+	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
+	
+</script>
+
+<script
+	src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+<link
+	href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- Inicio da navbar -->
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand"
+				href="https://github.com/JBento7?tab=repositories"><img
+				src="/imagens/oficina.png" alt=""></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/home/index">Home</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/orcamento/list">Orçamentos</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/os/addOs">Nova OS</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Cadastrar </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/orcamento/addOrc">Novo
+									Orçamento</a></li>
+							<li><a class="dropdown-item" href="/carro/addCarro">Novo
+									Veiculo</a></li>
+							<li><a class="dropdown-item" href="/cliente/addClientepf">Novo
+									Cliente PF</a></li>
+							<li><a class="dropdown-item" href="/clientepj/addPj">Novo
+									Cliente PJ</a></li>
+							<li><a class="dropdown-item" href="/oficina/addOficina">Nova
+									Oficina</a></li>
+							<li><a class="dropdown-item" href="/mecanico/addMecanico">Novo
+									Mecanico</a></li>
+							<li><a class="dropdown-item" href="/servico/addServico">Novo
+									Serviço</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">
+							Visualizar/Atualizar </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/carro/list">Visualizar/Atualizar
+									Veiculos</a></li>
+							<li><a class="dropdown-item" href="/cliente/list">Visualizar/Atualizar
+									Clientes PF</a></li>
+							<li><a class="dropdown-item" href="/clientepj/list">Visualizar/Atualizar
+									Clientes PJ</a></li>
+							<li><a class="dropdown-item" href="/mecanico/list">Visualizar/Atualizar
+									Mecanicos</a></li>
+							<li><a class="dropdown-item" href="/servico/list">Visualizar/Atualizar
+									Serviço</a></li>
+
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim da navbar-->
+	
+	<!--Inicio do da pagina-->
+	
+	 <div class="card">
+    	<h5 class="card-header">Ordens de Serviços Cadastradas </h5>
+    	
+    </div>
+
+	
+	<div class="col-12 col-xl-8 mb-4 mb-lg-0">
+		<div class="card">
+			<h5 class="card-header">Ultimas OS Cadastradas</h5>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th style="width: 10%" class="list">ID Ordem Serviço</th>
+								<th style="width: 10%" class="list">ID Orçamento</th>
+								<th style="width: 10%" class="list">Data Entrada</th>
+								<th style="width: 10%" class="list">Data Entrega</th>
+								<th style="width: 10%" class="list">Valor</th>
+								<th style="width: 10%" class="list">Modelo</th>
+								<th style="width: 10%" class="list">Placa</th>
+								<th style="width: 10%" class="list">Serviço</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="os : ${os}" th:id="'os' + ${os.id}">
+								<td th:text="${os.id}" class="text-center"></td>
+								<td th:text="${os.orcamento?.id}" class="text-center"></td>
+								<td
+									th:text="${#dates.format(os.orcamento?.dataentrada, 'dd/MM/yyyy')}"
+									class="text-center"></td>
+								<td th:text="${#dates.format(os.dataentrega, 'dd/MM/yyyy')}"
+									class="text-center"></td>
+								<td th:text="${os.orcamento?.valor}" class="text-center"></td>
+								<td th:text="${os.orcamento?.carro?.modelo}" class="text-center"></td>
+								<td th:text="${os.orcamento?.carro?.placa}" class="text-center"></td>
+								<td th:text="${os.servico?.servico}" class="text-center"></td>
+
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+<!--  -->
